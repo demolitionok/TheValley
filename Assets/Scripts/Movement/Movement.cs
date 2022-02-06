@@ -18,7 +18,7 @@ public class Movement : MonoBehaviour
 
     private void Awake()
     {
-        var movementAction = movementRef.action;
+        movementAction = movementRef.action;
     }
 
     private void OnEnable()
