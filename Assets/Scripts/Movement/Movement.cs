@@ -8,11 +8,15 @@ public class Movement : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rb;
     [SerializeField]
+    private Animator animator;
+    [SerializeField]
     private InputActionReference movementRef;
     private InputAction movementAction;
 
     [SerializeField]
     private float movementSpeed;
+
+    private float currentMovementSpeed;
 
     private Vector2 movementDirection;
 
@@ -37,10 +41,20 @@ public class Movement : MonoBehaviour
     {
         var input = ctx.ReadValue<Vector2>();
         movementDirection = input.normalized;
+        currentMovementSpeed = input.magnitude * movementSpeed;
+        var isMoving = currentMovementSpeed > 0;
+        
+        if (isMoving)
+        {
+            animator.SetFloat("movementX", movementDirection.x);
+            animator.SetFloat("movementY", movementDirection.y);
+        }
+        animator.SetBool("isMoving", isMoving);
+        animator.SetBool("movingStraightY", movementDirection.x == 0);
     }
 
     private void FixedUpdate()
     {
-        rb.MovePosition(movementSpeed * Time.deltaTime * movementDirection + rb.position);
+        rb.MovePosition(currentMovementSpeed * Time.deltaTime * movementDirection + rb.position);
     }
 }
