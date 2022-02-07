@@ -1,0 +1,55 @@
+{
+    "name": "AnyButton",
+    "maps": [
+        {
+            "name": "AnyButton",
+            "id": "1a838c18-739e-4271-ba60-e79dcd790af3",
+            "actions": [
+                {
+                    "name": "AnyButton",
+                    "type": "Button",
+                    "id": "7c2f97b7-0c22-4029-b1fd-ffc3135f4389",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "83e2ac63-ef55-4b82-b4f3-40160bcaecc4",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AnyButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8c675f0f-952c-47d1-9c86-f0fda9dda9fe",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AnyButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "29278d63-a19a-48f2-ae01-efba17aae3d1",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AnyButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
