@@ -20,9 +20,7 @@ public class Parallax : MonoBehaviour
     { 
         transform.position += new Vector3(parallaxFactor * Time.deltaTime, 0, 0);
 
-        if (transform.position.x >= startPos + length)
-            transform.position = new Vector3(startPos, 0, 0);
-        else if (transform.position.x <= startPos - length)
+        if (transform.position.x >= startPos + length || transform.position.x <= startPos - length)
             transform.position = new Vector3(startPos, 0, 0);
 
     }
