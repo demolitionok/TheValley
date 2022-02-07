@@ -215,7 +215,6 @@ GameObject:
   m_Component:
   - component: {fileID: 135103272}
   - component: {fileID: 135103273}
-  - component: {fileID: 135103274}
   m_Layer: 0
   m_Name: hill
   m_TagString: Untagged
@@ -288,20 +287,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &135103274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 135103271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9729653363d159d4baa7f788aaad07fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 424019603}
-  parallaxFactor: 1
 --- !u!1 &243217054
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +297,6 @@ GameObject:
   m_Component:
   - component: {fileID: 243217055}
   - component: {fileID: 243217056}
-  - component: {fileID: 243217057}
   m_Layer: 0
   m_Name: sky_fc
   m_TagString: Untagged
@@ -385,20 +369,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &243217057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 243217054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9729653363d159d4baa7f788aaad07fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 424019603}
-  parallaxFactor: 1
 --- !u!1 &424019603
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +380,6 @@ GameObject:
   - component: {fileID: 424019606}
   - component: {fileID: 424019605}
   - component: {fileID: 424019604}
-  - component: {fileID: 424019607}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -483,19 +452,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &424019607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 424019603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0c46fee6b2a12a4187e76521795fcae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
 --- !u!1 &466343166
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,8 +549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9729653363d159d4baa7f788aaad07fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 424019603}
-  parallaxFactor: 0.7
+  parallaxFactor: 0.2
 --- !u!1 &496896130
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,8 +812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9729653363d159d4baa7f788aaad07fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 424019603}
-  parallaxFactor: 0.5
+  parallaxFactor: 0.4
 --- !u!1 &827197684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,7 +1054,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1269325100}
   - component: {fileID: 1269325101}
-  - component: {fileID: 1269325102}
   m_Layer: 0
   m_Name: grassy_mountains_fc
   m_TagString: Untagged
@@ -1173,20 +1126,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1269325102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1269325099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9729653363d159d4baa7f788aaad07fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 424019603}
-  parallaxFactor: 1
 --- !u!1 &1619170870
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,8 +1223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9729653363d159d4baa7f788aaad07fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 424019603}
-  parallaxFactor: -0.3
+  parallaxFactor: -0.7
 --- !u!1 &1864384659
 GameObject:
   m_ObjectHideFlags: 0
