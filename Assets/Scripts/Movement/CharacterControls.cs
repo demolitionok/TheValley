@@ -33,6 +33,14 @@ public class @CharacterControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""NextSentence"",
+                    ""type"": ""Button"",
+                    ""id"": ""0c6e722c-19c3-4173-a112-37c79c1a450c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -101,6 +109,39 @@ public class @CharacterControls : IInputActionCollection, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bf80aa2d-7b64-47da-8a58-f93b640c5f31"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextSentence"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8b3e92ff-f136-4261-aa6c-359ef28cf5a6"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextSentence"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4862b6bf-9251-45b4-a63f-2a1d62c6d6f1"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextSentence"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -111,6 +152,7 @@ public class @CharacterControls : IInputActionCollection, IDisposable
         m_Character = asset.FindActionMap("Character", throwIfNotFound: true);
         m_Character_Walking = m_Character.FindAction("Walking", throwIfNotFound: true);
         m_Character_Interact = m_Character.FindAction("Interact", throwIfNotFound: true);
+        m_Character_NextSentence = m_Character.FindAction("NextSentence", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -162,12 +204,14 @@ public class @CharacterControls : IInputActionCollection, IDisposable
     private ICharacterActions m_CharacterActionsCallbackInterface;
     private readonly InputAction m_Character_Walking;
     private readonly InputAction m_Character_Interact;
+    private readonly InputAction m_Character_NextSentence;
     public struct CharacterActions
     {
         private @CharacterControls m_Wrapper;
         public CharacterActions(@CharacterControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Walking => m_Wrapper.m_Character_Walking;
         public InputAction @Interact => m_Wrapper.m_Character_Interact;
+        public InputAction @NextSentence => m_Wrapper.m_Character_NextSentence;
         public InputActionMap Get() { return m_Wrapper.m_Character; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -183,6 +227,9 @@ public class @CharacterControls : IInputActionCollection, IDisposable
                 @Interact.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnInteract;
+                @NextSentence.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnNextSentence;
+                @NextSentence.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnNextSentence;
+                @NextSentence.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnNextSentence;
             }
             m_Wrapper.m_CharacterActionsCallbackInterface = instance;
             if (instance != null)
@@ -193,6 +240,9 @@ public class @CharacterControls : IInputActionCollection, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @NextSentence.started += instance.OnNextSentence;
+                @NextSentence.performed += instance.OnNextSentence;
+                @NextSentence.canceled += instance.OnNextSentence;
             }
         }
     }
@@ -201,5 +251,6 @@ public class @CharacterControls : IInputActionCollection, IDisposable
     {
         void OnWalking(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnNextSentence(InputAction.CallbackContext context);
     }
 }
