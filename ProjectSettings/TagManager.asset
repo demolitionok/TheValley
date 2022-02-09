@@ -56,3 +56,6 @@ TagManager:
   - name: HighObjects
     uniqueID: 1666606083
     locked: 0
+  - name: Text
+    uniqueID: 1016984735
+    locked: 0

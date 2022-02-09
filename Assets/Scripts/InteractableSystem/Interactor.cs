@@ -26,6 +26,7 @@ public class Interactor : MonoBehaviour
         if (other.TryGetComponent(out IInteractable interactable))
         {
             currentInteractables.Add(interactable);
+            interactable.ShowNotification();
         }
     }
     private void OnTriggerExit2D(Collider2D other)
@@ -34,6 +35,7 @@ public class Interactor : MonoBehaviour
         if (other.TryGetComponent(out IInteractable interactable))
         {
             currentInteractables.Remove(interactable);
+            interactable.HideNotification();
         }
     }
 

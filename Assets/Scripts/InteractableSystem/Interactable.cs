@@ -15,4 +15,8 @@ public class Interactable : MonoBehaviour, IInteractable
     }
 
     public Vector2 GetPosition() => transform.position;
+
+    public virtual void ShowNotification() { }
+
+    public virtual void HideNotification() { }
 }
