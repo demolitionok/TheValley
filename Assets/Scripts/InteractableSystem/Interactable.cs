@@ -11,7 +11,7 @@ public class Interactable : MonoBehaviour, IInteractable
     public void Interact()
     {
         OnInteraction?.Invoke();
-        Debug.Log("AAAAAAAAAAAA INTERAKKKKTED");
+        Debug.Log("interacted");
     }
 
     public Vector2 GetPosition() => transform.position;
