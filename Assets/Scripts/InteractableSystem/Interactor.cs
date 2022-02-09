@@ -15,6 +15,7 @@ public class Interactor : MonoBehaviour
     private void Awake()
     {
         interactAction = interactReference.action;
+        currentInteractables = new HashSet<IInteractable>();
     }
 
     private void OnEnable() => interactAction.performed += OnInteraction;
@@ -29,6 +30,7 @@ public class Interactor : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
+
         if (other.TryGetComponent(out IInteractable interactable))
         {
             currentInteractables.Remove(interactable);
@@ -45,7 +47,7 @@ public class Interactor : MonoBehaviour
 
     private void OnInteraction(InputAction.CallbackContext ctx) 
     {
-        if (ctx.ReadValueAsButton() && currentInteractables.Count > 0)
+        if (currentInteractables.Count > 0)
         {
             var closestInteractable = currentInteractables.Aggregate(ClosestInteractable);
             closestInteractable.Interact();
