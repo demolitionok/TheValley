@@ -9,9 +9,9 @@ public class SmoothFollow : MonoBehaviour
     [SerializeField]
     private float speed;
 
-    void Start()
+    private void Start() 
     {
-        
+        target = SceneLoader.instance.player.transform;
     }
 
     void FixedUpdate()

@@ -18,11 +18,28 @@ public class Movement : MonoBehaviour
 
     private float currentMovementSpeed;
 
+    private bool inited;
+
     private Vector2 movementDirection;
+
+    public void Init(Animator animator, Rigidbody2D rb)
+    {
+        if (inited == false)
+        {
+            this.animator = animator;
+            this.rb = rb;
+            inited = true;
+        }
+        else 
+        {
+            Debug.Log("Initialization canceled. Already inited!");
+        }
+    }
 
     private void Awake()
     {
         movementAction = movementRef.action;
+        inited = animator != null && rb != null;
     }
 
     private void OnEnable()
