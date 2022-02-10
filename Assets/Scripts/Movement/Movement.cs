@@ -6,40 +6,28 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
     [SerializeField]
-    private Rigidbody2D rb;
-    [SerializeField]
-    private Animator animator;
-    [SerializeField]
     private InputActionReference movementRef;
     private InputAction movementAction;
+    private Rigidbody2D rb;
+    private Animator animator;
 
     [SerializeField]
     private float movementSpeed;
 
     private float currentMovementSpeed;
 
-    private bool inited;
-
     private Vector2 movementDirection;
 
-    public void Init(Animator animator, Rigidbody2D rb)
+    public void ReadPlayer(Player player) 
     {
-        if (inited == false)
-        {
-            this.animator = animator;
-            this.rb = rb;
-            inited = true;
-        }
-        else 
-        {
-            Debug.Log("Initialization canceled. Already inited!");
-        }
+        animator = player.GetComponent<Animator>();
+        rb = player.GetComponent<Rigidbody2D>();
     }
+
 
     private void Awake()
     {
         movementAction = movementRef.action;
-        inited = animator != null && rb != null;
     }
 
     private void OnEnable()

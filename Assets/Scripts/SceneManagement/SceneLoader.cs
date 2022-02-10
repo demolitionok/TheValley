@@ -8,11 +8,13 @@ public class SceneLoader : MonoBehaviour
     [SerializeField]
     private GameObject playerPrefab;
     [SerializeField]
-    private GameObject inputControllerPrefab;
+    private ScriptablePlayerData initialPlayerData;
+
     public Vector2 loadPosition;
-    public PlayerData playerData;
-    
-    public GameObject player { get; private set; }
+    public PlayerData savedData;
+
+    public event Action<Player> OnPlayerInstantiated;
+
     public static SceneLoader instance { get; private set; }
 
     private void Awake()
@@ -23,16 +25,15 @@ public class SceneLoader : MonoBehaviour
             return;
         }
         instance = this;
-
+        savedData = initialPlayerData.GetPlayerData();
         DontDestroyOnLoad(gameObject);
     }
 
-    public void LoadPlayer()
+    public void LoadData()
     {
-        player = Instantiate(playerPrefab, loadPosition, Quaternion.identity);
-        player.GetComponent<PlayerDataManager>().LoadData(playerData);
-        var inputController = Instantiate(inputControllerPrefab, Vector2.zero, Quaternion.identity);
-        var movement = inputController.GetComponent<Movement>();
-        movement.Init(player.GetComponent<Animator>(), player.GetComponent<Rigidbody2D>());
+        var playerGO = Instantiate(playerPrefab, loadPosition, Quaternion.identity);
+        var player = playerGO.GetComponent<Player>();
+        OnPlayerInstantiated?.Invoke(player);
+        player.LoadData(savedData);
     }
 }
