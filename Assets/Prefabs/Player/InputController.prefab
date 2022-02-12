@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2984388822695114407}
   - component: {fileID: 2984388822695114408}
   - component: {fileID: 2984388822695114406}
+  - component: {fileID: 6591925637299533942}
   m_Layer: 0
   m_Name: InputController
   m_TagString: Untagged
@@ -44,8 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131372f19af022a44bbea8a171bdff40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  animator: {fileID: 0}
   movementRef: {fileID: 1162194992764069405, guid: eb29b954a22776842a7461bbf63d30b0, type: 3}
   movementSpeed: 0.6
 --- !u!114 &2984388822695114406
@@ -81,8 +80,30 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 0fa7cafd-1f8b-477d-8a5d-9a583ea6ce31
     m_ActionName: Character/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0c6e722c-19c3-4173-a112-37c79c1a450c
+    m_ActionName: Character/NextSentence[/Mouse/leftButton,/Keyboard/space,/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ba80d14b-59a3-4cb1-876c-a5150b9061db
+    m_ActionName: Character/OpenInventory[/Keyboard/i,/Keyboard/tab]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Character
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &6591925637299533942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2984388822695114409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d706a5775ecaaf34292f6ae7a1cd9fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openReference: {fileID: 2560506218797232554, guid: eb29b954a22776842a7461bbf63d30b0, type: 3}
+  inventoryWindow: {fileID: 0}

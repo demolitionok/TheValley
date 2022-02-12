@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 2546479748665259913, guid: 2f1c1e7a55abb14478ebbc3671bfc838, type: 3}
   icon: {fileID: -4739563764201318701, guid: f141c36380abd9d4bb3ad92180f95d3d, type: 3}
+  equipable: 1
   itemName: Navy Outfit
   price: 200

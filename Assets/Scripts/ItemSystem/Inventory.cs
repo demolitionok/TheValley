@@ -27,6 +27,8 @@ public class Inventory
         OnInventoryChange?.Invoke(items);
     }
 
+    public void DisposeEvent() => OnInventoryChange = null;
+
     public Inventory() 
     {
         items = new List<Item>();

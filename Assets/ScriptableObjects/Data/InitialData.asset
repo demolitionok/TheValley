@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f945ed20acb2844eaede3c3a5a6ec08, type: 3}
   m_Name: InitialData
   m_EditorClassIdentifier: 
-  money: 0
-  equippedItem: {fileID: 0}
+  money: 500
+  equippedItem: {fileID: 11400000, guid: 89e7345a920f0f24694c643db96959ca, type: 2}
+  items: []

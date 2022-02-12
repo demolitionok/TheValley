@@ -14,6 +14,7 @@ public class SceneLoader : MonoBehaviour
     public PlayerData savedData;
 
     public event Action<Player> OnPlayerInstantiated;
+    public event Action<Player> OnPlayerLoaded;
 
     public static SceneLoader instance { get; private set; }
 
@@ -25,7 +26,7 @@ public class SceneLoader : MonoBehaviour
             return;
         }
         instance = this;
-        savedData = initialPlayerData.GetPlayerData();
+        savedData = Instantiate(initialPlayerData).GetPlayerData();
         DontDestroyOnLoad(gameObject);
     }
 
@@ -35,5 +36,6 @@ public class SceneLoader : MonoBehaviour
         var player = playerGO.GetComponent<Player>();
         OnPlayerInstantiated?.Invoke(player);
         player.LoadData(savedData);
+        OnPlayerLoaded?.Invoke(player);
     }
 }
