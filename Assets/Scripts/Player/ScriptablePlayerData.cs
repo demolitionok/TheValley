@@ -24,7 +24,7 @@ public class ScriptablePlayerData : ScriptableObject
     public PlayerData GetPlayerData() 
     {
         var copy = Copy();
-        var inventory = new Inventory(copy.items);
+        var inventory = new ItemList(copy.items);
         return new PlayerData(money, copy.equippedItem, inventory);
     }
 }

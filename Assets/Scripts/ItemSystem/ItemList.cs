@@ -4,9 +4,9 @@ using UnityEngine;
 using System.Collections.Generic;
 
 [Serializable]
-public class Inventory
+public class ItemList
 {
-    public event Action<List<Item>> OnInventoryChange;
+    public event Action<List<Item>> OnChange;
     private List<Item> items;
 
     public List<Item> GetItems() => items;
@@ -14,26 +14,26 @@ public class Inventory
     public void AddItem(Item item) 
     {
         items.Add(item);
-        OnInventoryChange?.Invoke(items);
+        OnChange?.Invoke(items);
     }
     public void RemoveItem(Item item)
     {
         items.Remove(item);
-        OnInventoryChange?.Invoke(items);
+        OnChange?.Invoke(items);
     }
     public void RemoveItemAt(int index)
     {
         items.RemoveAt(index);
-        OnInventoryChange?.Invoke(items);
+        OnChange?.Invoke(items);
     }
 
-    public void DisposeEvent() => OnInventoryChange = null;
+    public void DisposeEvent() => OnChange = null;
 
-    public Inventory() 
+    public ItemList() 
     {
         items = new List<Item>();
     }
-    public Inventory(List<Item> items)
+    public ItemList(List<Item> items)
     {
         this.items = items;
     }

@@ -9,6 +9,6 @@ public class Item : ScriptableObject
     public Sprite sprite;
     public Sprite icon;
     public bool equipable;
-    public string itemName;
+    public new string name;
     public float price;
 }

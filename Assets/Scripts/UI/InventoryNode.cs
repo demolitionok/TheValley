@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryNode : MonoBehaviour
+public class InventoryNode : MonoBehaviour, IItemView
 {
     [SerializeField]
     private Text priceText;

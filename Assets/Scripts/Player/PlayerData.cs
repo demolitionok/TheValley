@@ -8,9 +8,9 @@ public struct PlayerData
 {
     public float money;
     public Item equippedItem;
-    public Inventory inventory;
+    public ItemList inventory;
 
-    public PlayerData(float money, Item equippedItem, Inventory inventory)
+    public PlayerData(float money, Item equippedItem, ItemList inventory)
     {
         this.money = money;
         this.equippedItem = equippedItem;

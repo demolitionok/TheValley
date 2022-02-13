@@ -28,7 +28,17 @@ public class Player : MonoBehaviour
         data.inventory.AddItem(item);
     }
 
-    private void InitInventory(Inventory inventory) 
+    public void BuyItem(Item item) 
+    {
+
+        if (data.money - item.price >= 0)
+        {
+            PickUpItem(item);
+            data.money -= item.price;
+        }
+    }
+
+    private void InitInventory(ItemList inventory) 
     {
         data.inventory = inventory;
     }

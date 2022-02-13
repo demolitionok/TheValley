@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShopItemView : MonoBehaviour
+public class ShopItemView : MonoBehaviour, IItemView
 {
     [SerializeField]
     private Text nameText;
@@ -11,13 +11,27 @@ public class ShopItemView : MonoBehaviour
     private Text priceText;
     [SerializeField]
     private Image itemIcon;
-    [SerializeField]
-    private Item sourceItem;
+    public Item item { get; private set; }
 
-    void Start()
+    public void SetItem(Item item)
     {
-        nameText.text = sourceItem.itemName;
-        priceText.text = sourceItem.price.ToString();
-        itemIcon.sprite = sourceItem.icon;
+        this.item = item;
+        UpdateUI();
     }
+
+    private void UpdateUI()
+    {
+        if (item == null)
+        {
+            gameObject.SetActive(false);
+            priceText.text = "NULL";
+            return;
+        }
+
+        var text = item.price.ToString();
+        priceText.text = text;
+        itemIcon.sprite = item.icon;
+        nameText.text = item.name;
+    }
+
 }

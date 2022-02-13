@@ -1,41 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class InventoryView : MonoBehaviour
+public class ItemListView : MonoBehaviour
 {
     [SerializeField]
-    private List<InventoryNode> nodes;
-    private Inventory inventory;
+    private List<IItemView> elems;
+    private ItemList itemList;
 
 
     public void OnPlayerLoad(Player player) 
     {
-        inventory = player.GetPlayerData().inventory;
+        itemList = player.GetPlayerData().inventory;
         InitView();
     }
 
     private void InitView()
     {
-        var items = inventory.GetItems();
+        var items = itemList.GetItems();
         ChangeNodesItems(items);
     }
 
     public void OnEnable()
     {
-        if (inventory != null)
+        if (itemList != null)
         {
             InitView();
-            Debug.Log("sub");
-            inventory.OnInventoryChange += ChangeNodesItems;
+            itemList.OnChange += ChangeNodesItems;
         }
     }
 
     public void OnDisable()
     {
-        Debug.Log("unsub");
-        inventory.OnInventoryChange -= ChangeNodesItems;
+        itemList.OnChange -= ChangeNodesItems;
     }
 
     public void ChangeNodesItems(List<Item> items)
@@ -44,10 +41,10 @@ public class InventoryView : MonoBehaviour
             return;
 
         Debug.Log("changed");
-        for (int i = 0; i < nodes.Count; i++) 
+        for (int i = 0; i < elems.Count; i++) 
         {
             if(i < items.Count)
-                nodes[i].SetItem(items[i]);
+                elems[i].SetItem(items[i]);
         }
     }
 }
