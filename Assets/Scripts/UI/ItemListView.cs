@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class ItemListView : MonoBehaviour
 {
-    [SerializeField]
-    private List<IItemView> elems;
+    public List<ItemView> elems;
     private ItemList itemList;
 
 

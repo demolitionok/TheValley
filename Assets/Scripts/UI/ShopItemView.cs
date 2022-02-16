@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
-public class ShopItemView : MonoBehaviour, IItemView
+public class ShopItemView : ItemView
 {
     [SerializeField]
     private Text nameText;
@@ -11,9 +12,28 @@ public class ShopItemView : MonoBehaviour, IItemView
     private Text priceText;
     [SerializeField]
     private Image itemIcon;
+    [SerializeField]
+    private Button buyButton;
+
+    public event Action<Item> OnBuyClick;
+
     public Item item { get; private set; }
 
-    public void SetItem(Item item)
+
+    private void InvokeOnBuyClick() 
+    {
+        OnBuyClick?.Invoke(item);
+    }
+    private void OnEnable()
+    {
+        buyButton.onClick.AddListener(InvokeOnBuyClick);
+    }
+    private void OnDisable()
+    {
+        buyButton.onClick.AddListener(InvokeOnBuyClick);
+    }
+
+    public override void SetItem(Item item)
     {
         this.item = item;
         UpdateUI();

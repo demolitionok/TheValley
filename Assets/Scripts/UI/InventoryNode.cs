@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryNode : MonoBehaviour, IItemView
+public class InventoryNode : ItemView
 {
     [SerializeField]
     private Text priceText;
@@ -11,7 +11,7 @@ public class InventoryNode : MonoBehaviour, IItemView
     private Image itemIcon;
     public Item item { get; private set; }
 
-    public void SetItem(Item item) 
+    public override void SetItem(Item item) 
     {
         this.item = item;
         UpdateUI();
