@@ -15,9 +15,11 @@ public class DialogueSubject : MonoBehaviour
     [SerializeField]
     private InputActionReference dialogueReference;
     private InputAction dialogueAction;
+    
 
     public Dialogue dialogue;
     private int sentenceIndex;
+    private bool started = false;
 
     public UnityEvent DialogueEnded;
 
@@ -27,21 +29,29 @@ public class DialogueSubject : MonoBehaviour
     private void OnDisable() => dialogueAction.performed -= OnInput;
 
 
-    public void StartDialogue()
+    public void TryStartDialogue()
     {
-        dialogueText.ClearAll();
-        sentenceIndex = 0;
-        dialogueText.gameObject.SetActive(true);
-        dialogueText.speakerName.text = dialogue.speakerName;
+        if (started == false)
+        {
+            started = true;
+            dialogueText.ClearAll();
+            sentenceIndex = 0;
+            dialogueText.gameObject.SetActive(true);
+            dialogueText.speakerName.text = dialogue.speakerName;
 
-        StartCoroutine(TypeSentence());
+            StartCoroutine(TypeSentence());
+        }
+        else 
+        {
+            Debug.Log("already started");
+        }
     }
     private void EndDialogue()
     {
         sentenceIndex = 0;
+        StopCoroutine(TypeSentence());
         dialogueText.gameObject.SetActive(false);
 
-        StopCoroutine(TypeSentence());
         DialogueEnded?.Invoke();
     }
 

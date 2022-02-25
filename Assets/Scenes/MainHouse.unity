@@ -249,7 +249,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 490024897}
         m_TargetAssemblyTypeName: SceneTransition, Assembly-CSharp
-        m_MethodName: SetLoader
+        m_MethodName: SetLoadPosition
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3779,7 +3779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1918725097302064464, guid: 5b6ca43a0b19ff746ba67d54c489c7a1, type: 3}
       propertyPath: OnInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartDialogue
+      value: TryStartDialogue
       objectReference: {fileID: 0}
     - target: {fileID: 1918725097302064464, guid: 5b6ca43a0b19ff746ba67d54c489c7a1, type: 3}
       propertyPath: OnInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

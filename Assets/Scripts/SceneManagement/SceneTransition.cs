@@ -10,7 +10,7 @@ public class SceneTransition : MonoBehaviour
     [SerializeField]
     private string newSceneName;
 
-    public void SetLoader() 
+    public void SetLoadPosition() 
     {
         SceneLoader.instance.loadPosition = newPlayerPosition;
     }
